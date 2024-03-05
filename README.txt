@@ -5,7 +5,7 @@ avec leur hachage SHA-256 et l'attribut 'integrity'. Le script résout égalemen
 
 ## Prérequis
 - Python 3.x
-- Bibliothèques Python requises : `requests`, `beautifulsoup4`
+- Bibliothèques Python requises : `requests`, `beautifulsoup4` via une commande "pip install requests beautifulsoup4"
 
 ## Installation des dépendances
 ```bash
