@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import hashlib
 from urllib.parse import urljoin
 
-# Cette fonction prend en entrée une chaîne de données et retourne son hachage SHA-256.
 def calculer_hachage(data):
     sha256_hash = hashlib.sha256()
     sha256_hash.update(data.encode('utf-8'))
@@ -41,6 +40,5 @@ def mettre_integrity(url):
     print("Page modifiée enregistrée avec succès.")
 
 # Exemple d'utilisation avec une URL
-url_page = "https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal"
+url_page = input("Veuillez rentrer l'URL de votre page : ")
 mettre_integrity(url_page)
-
