@@ -1,6 +1,6 @@
 import requests
  
-from calcul_hashage import mettre_integrity
+from calcul_hashage import recup_page
 
 def verifier_lien_internet(url):
     try:

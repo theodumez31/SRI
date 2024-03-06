@@ -8,13 +8,15 @@ def calculer_hachage(data):
     sha256_hash.update(data.encode('utf-8'))
     return sha256_hash.hexdigest()
 
-def mettre_integrity(url):
-    # Obtenir le contenu de la page
+def recup_page(url):
+# Obtenir le contenu de la page
     response = requests.get(url)
     if response.status_code != 200:
         print(f"Erreur lors de la récupération de la page. Code d'erreur : {response.status_code}")
-        return
+    return response
 
+def mettre_integrity(url):
+    response = recup_page(url)
     # Analyser le HTML avec BeautifulSoup
     soup = BeautifulSoup(response.text, 'html.parser')
 
