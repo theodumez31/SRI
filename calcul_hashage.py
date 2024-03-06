@@ -42,5 +42,5 @@ def mettre_integrity(url):
     print("Page modifiée enregistrée avec succès.")
 
 # Exemple d'utilisation avec une URL
-url_page = input("Veuillez rentrer l'URL de votre page : ")
+url_page = "https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal"#input("Veuillez rentrer l'URL de votre page : ")
 mettre_integrity(url_page)

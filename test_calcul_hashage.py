@@ -2,9 +2,10 @@ import requests
  
 from calcul_hashage import recup_page
 
-def verifier_lien_internet(url):
+def verifier_lien_internet():
     try:
-        response = requests.get(url)
+        url_test = "https://exemple.com"
+        response = requests.get(url_test)
         if response.status_code == 200:
             return 1  # Code d'erreur 1 = OK
         else:
@@ -14,6 +15,5 @@ def verifier_lien_internet(url):
         return 3  # Code d'erreur 3 = Échec de la requête HTTP
  
 # Exemple d'utilisation
-url_page = input("Veuillez entrer l'URL de votre page : ")
-resultat = verifier_lien_internet(url_page)
+resultat = verifier_lien_internet()
 print(f"Résultat du test : {resultat}")
