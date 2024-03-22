@@ -1,19 +1,22 @@
 import requests
- 
-from calcul_hashage import mettre_integrity
+import pytest
 
-def verifier_lien_internet(url):
-    try:
-        response = requests.get(url)
-        if response.status_code == 200:
-            return 1  # Code d'erreur 1 = OK
-        else:
-            return 2  # Code d'erreur 2 = Erreur de récupération de la page
-    except Exception as e:
-        print(f"Erreur : {e}")
-        return 3  # Code d'erreur 3 = Échec de la requête HTTP
- 
-# Exemple d'utilisation
-url_page = input("Veuillez entrer l'URL de votre page : ")
-resultat = verifier_lien_internet(url_page)
-print(f"Résultat du test : {resultat}")
+def recup_page(url):
+    # Obtenir le contenu de la page
+    response = requests.get(url)
+    if response.status_code != 200:
+        print(f"Erreur lors de la récupération de la page. Code d'erreur : {response.status_code}")
+    return response
+
+def test_recup_page():
+    # URL de test
+    test_url = "https://www.example.com"
+    
+    # Appel de la fonction avec l'URL de test
+    result = recup_page(test_url)
+    
+    # Vérification que le résultat est un objet Response
+    assert isinstance(result, requests.Response)
+    
+    # Vérification du code d'état HTTP
+    assert result.status_code == 200
